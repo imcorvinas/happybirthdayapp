@@ -1,32 +1,28 @@
-import java.sql.Date;
-import java.util.Objects;
+import java.util.Date;
+import java.time.*;
 
-public class Person implements Comparable <Person>{
+public class Person {
     private String name;
-    private Date birthday;
+    private LocalDate birthday;
+    public Person (String name, LocalDate birthday) {
+        this.name = name;
+        this.birthday = birthday;
+    }
+    public Person (Person obj) {
+        this.name = obj.getName();
+        this.birthday = obj.getBirthday();
+    }
     public String getName() {
         return this.name;
     }
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
     public void setName(String name) {
         this.name = name;
     }
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
-    }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return name.equals(person.name) && birthday.equals(person.birthday);
-    }
-    public int compareTo (Person person) {
-        if () return -1;
-        if ((this.name.equals(person.getName()))&&(this.birthday.equals(person.getBirthday()))) return 0;
-        else return 1;
     }
 }
 
